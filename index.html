@@ -1,0 +1,686 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Safety guide</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1d60c4af-6cb0-809c-bacb-c7c5bd0e2889" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🦺</span></div><h1 class="page-title">Safety guide</h1><p class="page-description"></p></header><div class="page-body"><details><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Для Россиян и проживающих в России (für russische Teilnehmenden)</summary><div class="indented"><div><h1 id="1c30c4af-6cb0-80fc-9434-f82a743255ef" class=""><strong>Мы - &quot;нежелательные&quot; в России.</strong></h1><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c30c4af-6cb0-8087-9f01-c955eb944eef"><div style="font-size:1.5em"><span class="icon">❔</span></div><div style="width:100%"><h2 id="1c30c4af-6cb0-80e2-939c-ccf7a0a6f035" class=""><strong>Что произошло:</strong></h2><p id="1c30c4af-6cb0-808a-aba5-d5c5ae220392" class="">12 Июля 2024 года МинЮст России внес MitOst e.V. в <a href="https://minjust.gov.ru/ru/documents/7756/">реестр “нежелательных организаций”</a>. Мы, MitOst Hamburg e.V., технически являемся региональным отделением MitOst e.V. и теперь так же являемся “нежелательными” по ассоциации, хотя мы максимально независимы, почти не поддерживаем контакт с MitOst e.V. и занимаемся немного другой деятельностью.</p></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-8065-97b9-f8ad488b0ae8"><div style="font-size:1.5em"><span class="icon">❓</span></div><div style="width:100%"><h2 id="1c30c4af-6cb0-8007-b164-c18988d02e26" class=""><strong>Что это значит:</strong></h2><p id="1c70c4af-6cb0-8044-a90f-f555876275a2" class="">Мы не можем вести деятельность в России, а участни:цы и организатор:ки наших проектов (даже не в России) могут быть подвергнуты преследованию со стороны российских силовых структур (Подробно про закон - <a href="https://ovdinfo.legal/instruction/nezhelatelnye-organizacii-pamyatka#5">здесь</a> и см. <em>Почитать про закон</em><em><strong>↓</strong></em>)<em>.</em> А ниже руководство, как снизить риски.</p></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1d60c4af-6cb0-80d2-bbc5-c32951e6718d"><div style="font-size:1.5em"><span class="icon">👇</span></div><div style="width:100%"><h2 id="1d60c4af-6cb0-80c0-9bff-fe1b02e1aec5" class=""><strong>Для кого это руководство?</strong></h2><p id="1d60c4af-6cb0-80ba-9a03-c502988697c3" class="">Для участни:ц и организатор:ок наших проектов, находящихся в России или Грузии (в связи с приходом к власти пророссийской партии), или планирующих туда ехать, которые являются граждан:ками РФ или которые постоянно проживают в РФ.</p></div></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-8050-a8cf-d0a2bb6c818e"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%"><h2 id="1c30c4af-6cb0-804b-a653-c566b8872679" class=""><strong>Что мы советуем вам сделать сейчас:</strong></h2><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c30c4af-6cb0-806a-a16c-f4ff85ba105e"><div style="font-size:1.5em"><span class="icon">1️⃣</span></div><div style="width:100%"><p id="1c30c4af-6cb0-8099-8b48-d0f5ac8628e9" class="">Удалить все репосты, сообщения в открытых чатах (и закрытых чатах с людьми, которых вы не знаете / которым вы не доверяете) с материалами МитОста, ссылками на МитОст, символикой МитОста (и упоминанием МитОста, если по сообщению можно подумать, что вы участвуете в проекте)</p><p id="1c70c4af-6cb0-8006-a587-cc98fcbec862" class="">Как это сделать, можно почитать <a href="https://safetyguide.help/b26229de234940f1a06c02fdffd41b58">здесь</a>.</p><blockquote id="1c30c4af-6cb0-80ec-808b-ee402b1dde22" class="">Размещение в интернете материалов, связанных с нежелательной организацией - это длящееся правонарушение, т.е. даже если вы сделали репост 5 лет назад, считается, как будто он был размещен сегодня.</blockquote></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c30c4af-6cb0-8036-b1eb-dd6ab7862c1b"><div style="font-size:1.5em"><span class="icon">2️⃣</span></div><div style="width:100%"><p id="1c30c4af-6cb0-803b-8266-d1500aec0f31" class="">Если у вас российская почта (Яндекс, mail.ru и др.) - отписаться от рассылки и удалить все письма с упоминанием МитОста (из всех папок и очистить корзину), а также завести <strong>более безопасную почту</strong>, например, Gmail, а еще лучше - Proton Mail или Tuta (работают только с VPN).</p></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c30c4af-6cb0-80e3-9d3c-d1d92706330f"><div style="font-size:1.5em"><span class="icon">3️⃣</span></div><div style="width:100%"><p id="1c30c4af-6cb0-801e-a265-e545b06aec41" class="">Ознакомиться с полезными памятками и инструкциями от ОВД-Инфо (см. <em>Что делать, если поймали</em><em><strong>↓</strong></em>)</p></div></figure></div></figure><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-804e-9933-f7eb5aa4380b"><div style="font-size:1.5em"><span class="icon">🚫</span></div><div style="width:100%"><h2 id="1c30c4af-6cb0-80bb-854f-c8b9daf7b546" class=""><strong>Точно-точно нельзя:</strong></h2><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-8084-a0db-c85faf553816"><div style="font-size:1.5em"><span class="icon">💳</span></div><div style="width:100%"><p id="1c30c4af-6cb0-804e-a598-f8702dc705d8" class="">Делать взносы, пожертвования и вообще совершать какие-либо финансовые операции с МитОстом</p></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-8030-9de0-c5483167afe3"><div style="font-size:1.5em"><span class="icon">💼</span></div><div style="width:100%"><p id="1c30c4af-6cb0-80db-b13f-c8a378fbfc57" class="">Открыто участвовать в деятельности организации — работать, участвовать в проектах и мероприятиях (так как вы уже участвуете, участвовали или планируете участвовать — см. <em>Как снизить риски для себя и других</em><em><strong>↓</strong></em>)</p></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-809c-b41c-eb3ec2a27a74"><div style="font-size:1.5em"><span class="icon">📢</span></div><div style="width:100%"><p id="1c30c4af-6cb0-80a2-b59f-f38e017fcfe4" class="">Распространять материалы МитОста в соцсетях/открытых чатах/на площадях городов в России</p></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-8005-9b79-e762f144e127"><div style="font-size:1.5em"><span class="icon">🔗</span></div><div style="width:100%"><p id="1c30c4af-6cb0-806b-ae23-fdb36ee2f926" class="">Делиться ссылками на МитОст в соцсетях и открытых чатах</p></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-80c6-9c26-ec36a1058d81"><div style="font-size:1.5em"><span class="icon">👕</span></div><div style="width:100%"><p id="1c30c4af-6cb0-80d8-a14f-fc41c7a3a3ca" class="">Распространять символику и носить мерч МитОста</p></div></figure></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-8063-bc5a-de5e192df36f"><div style="font-size:1.5em"><span class="icon">⚠️</span></div><div style="width:100%"><h2 id="1c30c4af-6cb0-805c-b00e-fbbd688d324a" class=""><strong>Можно, но осторожно (в порядке уменьшения опасности):</strong></h2><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-80bc-a336-ebf3dff3b050"><div style="font-size:1.5em"><span class="icon">👍</span></div><div style="width:100%"><ul id="1c30c4af-6cb0-8030-bd8d-e220719db47b" class="bulleted-list"><li style="list-style-type:disc">Лайкать и комментировать (<strong>не рекомендуется</strong>, особенно, если ваш лайк/коммент вызовет появление поста в ленте других, например, в Instagram) <strong>с анонимного аккаунта</strong></li></ul></div></figure><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-80f1-bae7-c2f6f16cbef8"><div style="font-size:1.5em"><span class="icon">🗣</span></div><div style="width:100%"><ul id="1c30c4af-6cb0-80e7-bd6d-f7f8a51c337b" class="bulleted-list"><li style="list-style-type:disc">Распространять и репостить материалы/ссылки/символику в закрытых чатах и в личном общении <strong>среди людей, которым ты доверяешь</strong></li></ul></div></figure><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-803c-b151-e0edc3020a39"><div style="font-size:1.5em"><span class="icon">💙</span></div><div style="width:100%"><ul id="1c30c4af-6cb0-8033-bb21-c26f65273d0a" class="bulleted-list"><li style="list-style-type:disc">Быть подписанными на МитОст в соцсетях<strong> с анонимного аккаунта</strong></li></ul></div></figure><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-8061-9258-fcd8c7679355"><div style="font-size:1.5em"><span class="icon">✉️</span></div><div style="width:100%"><ul id="1c30c4af-6cb0-80d6-be2e-c00f7fe48c0f" class="bulleted-list"><li style="list-style-type:disc">Получать e-mail рассылку (<strong>на безопасную почту</strong>, см. выше)</li></ul></div></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-80bc-a3d2-fe37ff1d7acd"><div style="font-size:1.5em"><span class="icon">👀</span></div><div style="width:100%"><ul id="1c30c4af-6cb0-802c-aa1e-d3f8c299593a" class="bulleted-list"><li style="list-style-type:disc">Следить за новостями на сайте (но лучше не держать сайт в закладках)</li></ul></div></figure><h3 id="1c30c4af-6cb0-802f-a10a-f22c8f9b355b" class="">Что значит <strong><span style="border-bottom:0.05em solid">анонимный аккаунт</span></strong>:</h3><p id="1c30c4af-6cb0-806e-a663-e75a4014eaf0" class="">Это аккаунт, заведенный на безопасную почту / иностранный номер телефона, через который нельзя проследить связь с вами. Желательно закрытый / непубличный.</p><p id="1c30c4af-6cb0-80ca-8955-eb5e5d73de2a" class="">
+</p></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-8085-b399-fc42c0aedafc"><div style="font-size:1.5em"><span class="icon">✅</span></div><div style="width:100%"><h2 id="1c30c4af-6cb0-8049-8283-c19de893fc46" class=""><strong>Как снизить риски для себя и других:</strong></h2><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-80ca-92d0-e946002d3bf4"><div style="font-size:1.5em"><span class="icon">🤳</span></div><div style="width:100%"><p id="1c30c4af-6cb0-8094-a679-f41a9a32faa2" class="">Попросить всех на проекте / мероприятии не фотографировать себя и не участвовать в съемке общих фотографий</p><ul id="1c30c4af-6cb0-8078-ae28-f9c8971a4eb8" class="bulleted-list"><li style="list-style-type:disc">если вы уже обнаружили себя на каких-то фото (на сайте или в соцсетях) и не хотите там быть — сообщите нам</li></ul></div></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-808c-b2bb-c2a0410249fd"><div style="font-size:1.5em"><span class="icon">📸</span></div><div style="width:100%"><p id="1c30c4af-6cb0-80e3-8c3e-e0163d3c0236" class="">Не делать и не публиковать фото других участников без их согласия</p></div></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-80ad-a308-e5a3d93645a1"><div style="font-size:1.5em"><span class="icon">💸</span></div><div style="width:100%"><p id="1c30c4af-6cb0-80fa-be2f-cbed9fe19741" class="">Делать взносы наличкой или через людей, которым вы доверяете</p></div></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-80b0-ac3f-da3795a72c25"><div style="font-size:1.5em"><span class="icon">🫂</span></div><div style="width:100%"><p id="1c30c4af-6cb0-8076-9992-e560dfbe6410" class="">Обсуждать МитОст только с людьми, которым вы доверяете</p></div></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-800a-8bdb-e511c890803b"><div style="font-size:1.5em"><span class="icon">🔒</span></div><div style="width:100%"><p id="1c30c4af-6cb0-80a6-87f6-fe3e2e0ec931" class="">Обсуждать МитОст только в Signal или в секретных/закрытых чатах в Telegram. Почему так —<a href="https://safetyguide.help/44abc1fa3d34469ea6ae06bbe71dcb4c"> здесь</a>. А гайд, как сделать свое общение в Telegram безопаснее —<a href="https://safetyguide.help/129a3782a07e80f9b182e3acbe4c38fb"> здесь</a></p></div></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-80f0-858a-c858014fc977"><div style="font-size:1.5em"><span class="icon">📫</span></div><div style="width:100%"><p id="1c30c4af-6cb0-8080-bd27-d9652aa965b3" class="">Использовать более безопасную почту, например, Proton Mail. Почему так и гайд, как обеспечить максимум безопасности —<a href="https://safetyguide.help/620496ee473a43549c073a5ac4a58c7f"> здесь</a></p></div></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-8056-b3c8-c938f8b9dce4"><div style="font-size:1.5em"><span class="icon">📵</span></div><div style="width:100%"><p id="1c30c4af-6cb0-8095-aab0-eff5802a2845" class="">Перед поездкой в Россию и пересечением российской границы позаботьтесь о безопасности — гайд <a href="https://safetyguide.help/3ee6fa8737d54edbb280d41a285b2ddd">раз</a> и <a href="https://te-st.org/2022/07/27/prepare-your-devices/">два</a></p></div></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-8017-98fa-da4d52efc829"><div style="font-size:1.5em"><span class="icon">🗑️</span></div><div style="width:100%"><p id="1c30c4af-6cb0-80d7-a649-c710a083e6c7" class="">Избавиться от всего мерча и символики на случай обыска</p></div></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-800c-804f-e1f25d7cee6d"><div style="font-size:1.5em"><span class="icon">😶‍🌫️</span></div><div style="width:100%"><p id="1c30c4af-6cb0-80d5-9eb6-cf07a3b1feeb" class="">Освоить средства анонимизации, такие как <a href="https://te-st.org/2020/04/30/anonymity-and-tor/">Tor Browser</a> и <a href="https://te-st.org/2021/07/26/tails-review/">Tails</a></p></div></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-80ff-beb5-f75fa18b9b4b"><div style="font-size:1.5em"><span class="icon">🔍</span></div><div style="width:100%"><p id="1c30c4af-6cb0-80e3-baae-cfe6d035eb8c" class="">Провести селф-доксинг (т.е. попытаться найти информацию о самих себе в интернете). Гайд на английском — <a href="https://docs.google.com/document/d/1WleGh4D3_p7TYPhjfKRHQyMYwhZayYZayYY7AZSSzPs/edit?tab=t.0">вот</a></p></div></figure></div></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-8050-8a3c-d0bc480c3d8e"><div style="font-size:1.5em"><span class="icon">🔄</span></div><div style="width:100%"><h2 id="1c30c4af-6cb0-806d-b5a6-c8fe921e0050" class=""><strong>Что поменялось в нашей работе:</strong></h2><ul id="1c30c4af-6cb0-8022-88d2-d053456b9a5e" class="bulleted-list"><li style="list-style-type:disc">Используем более безопасные средства для внутренней работы — Signal, Proton, Campflow</li></ul><ul id="1c30c4af-6cb0-8094-8aa3-d91cfb3ce4c5" class="bulleted-list"><li style="list-style-type:disc">Делаем и публикуем материалы с вашим участием только с вашего согласия</li></ul><ul id="1c30c4af-6cb0-8028-9ef5-ca350b503ca2" class="bulleted-list"><li style="list-style-type:disc">Не шлем организационные письма с почты МитОста.</li></ul><ul id="1c70c4af-6cb0-80a3-af56-eaf3339313cb" class="bulleted-list"><li style="list-style-type:disc">Избегаем потенциально опасных слов и материалов в письмах.</li></ul><ul id="1c30c4af-6cb0-806f-be13-f8a963714b30" class="bulleted-list"><li style="list-style-type:disc">Мы больше не делаем приглашения для виз от нашего имени, поэтому если оно вам нужно — напишите нам (по безопасному каналу↑), и мы вместе что-нибудь придумаем;)</li></ul></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-80d8-9697-ec61881780a4"><div style="font-size:1.5em"><span class="icon">🚨</span></div><div style="width:100%"><h2 id="1c30c4af-6cb0-807e-93ba-f929fb729d90" class=""><strong>Какие последствия, если поймают:</strong></h2><p id="1c30c4af-6cb0-80f8-9fd2-dbedd48d4c67" class="">Есть 2 статьи:</p><ul id="1c30c4af-6cb0-8043-94fb-c7de5bd67239" class="bulleted-list"><li style="list-style-type:disc"><strong>Административная ответственность </strong>для граждан за участие в деятельности нежелательной организации предусмотрена статьей <a href="https://www.consultant.ru/document/cons_doc_LAW_34661/390287b8b028c1240d9e9488f19237c80eb35c81/">20.33 КоАП</a>. Наказание — от пяти до 15 тысяч рублей штрафа.<p id="1c30c4af-6cb0-80df-9d82-ebf246fb2565" class="">Под нее попадают:</p><ul id="1c30c4af-6cb0-8029-9c5f-db2941debec8" class="bulleted-list"><li style="list-style-type:circle">работа в МитОсте</li></ul><ul id="1c30c4af-6cb0-804d-823a-ffc412588528" class="bulleted-list"><li style="list-style-type:circle">распространение и репост материалов и ссылок на МитОст</li></ul><ul id="1c30c4af-6cb0-80b9-bfbc-f2c09572d4a4" class="bulleted-list"><li style="list-style-type:circle">распространение символики МитОста</li></ul><ul id="1c30c4af-6cb0-8033-af94-c7977b6e99e2" class="bulleted-list"><li style="list-style-type:circle">неудаление публичных репостов и ссылок на МитОст</li></ul></li></ul><ul id="1c30c4af-6cb0-807a-9b16-fb4ff77ba83e" class="bulleted-list"><li style="list-style-type:disc"><strong>Уголовная ответственность</strong> предусмотрена статьей <a href="https://www.consultant.ru/document/cons_doc_LAW_10699/f3541713e229607798086233db886337e55eb099/">284.1 УК</a>. Наказание - от штрафа размером 300 т.р. до 6 лет лишения свободы. Статья содержит три части:<ul id="1c30c4af-6cb0-8015-acdb-e309bb16edc6" class="bulleted-list"><li style="list-style-type:circle">Повторное участие в деятельности. Применяется в двух случаях: если человека привлекают по статье 20.33 КоАП второй раз в течение года; если человек совершил деяние по статье 20.33 КоАП и при этом у него есть непогашенная судимость по статьям 284.1 УК или <a href="https://www.consultant.ru/document/cons_doc_LAW_500185/81a3c65666ae816f828a0e12d6b48fcfaf144618/#dst3136">330.3 УК</a>.<p id="1c30c4af-6cb0-8052-9b88-f8e969059ee2" class="">(Принимая во внимание природу судов в России, 2 репоста могут считаться за 2 участия и это уже уголовная статья)</p></li></ul><ul id="1c30c4af-6cb0-801c-a1f1-e389eaceba08" class="bulleted-list"><li style="list-style-type:circle">Предоставление или сбор средств либо оказание финансовых услуг, заведомо предназначенных для “нежелательной” организации.</li></ul><ul id="1c30c4af-6cb0-80e6-a2dc-ee5f2a3a4118" class="bulleted-list"><li style="list-style-type:circle">Организация деятельности — например, руководство МитОстом.</li></ul></li></ul></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-8029-b636-e7b59743ca7f"><div style="font-size:1.5em"><span class="icon">⁉️</span></div><div style="width:100%"><h2 id="1c30c4af-6cb0-8056-a909-daa5eff7a0a4" class=""><strong>Что делать, если поймали:</strong></h2><ul id="1c30c4af-6cb0-8063-b182-fd89b3728f9e" class="bulleted-list"><li style="list-style-type:disc">Следовать инструкциям:<ul id="1c30c4af-6cb0-8007-8f34-ee9d7c1f6dd5" class="bulleted-list"><li style="list-style-type:circle"><a href="https://ovdinfo.legal/instruction/zaschiti-sebya-sam#1">Защити себя сам</a></li></ul><ul id="1c30c4af-6cb0-8073-9de6-c9b2c6fa67d2" class="bulleted-list"><li style="list-style-type:circle"><a href="https://ovdinfo.legal/instruction/chto-delat-esli-menya-ostanovil-politseyskiy#1">Что делать, если ко мне подошел полицейский?</a></li></ul><ul id="1c30c4af-6cb0-809f-bbe5-f64050538cf1" class="bulleted-list"><li style="list-style-type:circle"><a href="https://ovdinfo.legal/instruction/instrukciya-idealnogo-zaderzhannogo#1">Инструкция идеального задержанного</a></li></ul></li></ul><ul id="1c30c4af-6cb0-8082-baa0-d18924a53271" class="bulleted-list"><li style="list-style-type:disc"><a href="https://ovdinfo.legal/help">Позвонить в ОВД-Инфо или заполнить заявку на помощь в суде</a></li></ul><ul id="1c30c4af-6cb0-8052-b9c5-fbade3bd8321" class="bulleted-list"><li style="list-style-type:disc">Шаблоны для ходатайств:<ul id="1c30c4af-6cb0-8090-8d49-f464114af064" class="bulleted-list"><li style="list-style-type:circle"><a href="https://docs.google.com/document/d/1ADPpOeDxr9X1F744xXblTbgoSSzQ4mF--XbIaigcMz8/edit#heading=h.9yv8x1rxbasx">Мне вменяют участие в мероприятии нежелательной организации</a></li></ul><ul id="1c30c4af-6cb0-80ee-96ac-fa3b85128e5a" class="bulleted-list"><li style="list-style-type:circle"><a href="https://docs.google.com/document/d/1hZYzkjos5RuOyIywnHbndzaMVKFLm6VArN8IzsuI9t8/edit#heading=h.9yv8x1rxbasx">Мне вменяют репост материала нежелательной организации</a></li></ul><ul id="1c30c4af-6cb0-80ef-8f6c-e67d5710062c" class="bulleted-list"><li style="list-style-type:circle"><a href="https://docs.google.com/document/d/10QH8TW7VAgu3A-VP6BGu4PnAiEMAFkXzDKGpJlv2JVA/edit">Апелляционная жалоба</a></li></ul></li></ul></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-8010-a0fb-e80814638899"><div style="font-size:1.5em"><span class="icon">📕</span></div><div style="width:100%"><h2 id="1c30c4af-6cb0-8056-9a1a-ce615ebaf074" class=""><strong>Почитать про закон:</strong></h2><p id="1c30c4af-6cb0-8009-9478-db03423eb5fc" class=""><a href="https://ovdinfo.legal/instruction/nezhelatelnye-organizacii-pamyatka#5">ОВД-инфо</a></p><p id="1c30c4af-6cb0-80a8-938a-e020d2a1966a" class=""><a href="https://www.ekhokavkaza.com/a/32870286.html">Эхо Кавказа</a> (признаны нежелательной организацией)</p><p id="1c30c4af-6cb0-8040-a3bb-ee28e99deeb7" class=""><a href="https://www.currenttime.tv/a/chem-grozit-status-nezhelatelnoy-organizatsii-nashim-chitatelyam-v-rossii/32827907.html">Настоящее время</a> (признаны нежелательной организацией)</p><p id="1c30c4af-6cb0-806d-8bc3-ec14c80d3394" class=""><a href="https://doxa.team/articles/undesired-doxa">Doxa</a> (признаны нежелательной организацией)</p></div></figure></div></div></details>
+<details><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Für deutsche Teilnehmenden (для немецких участни:ц)</summary><div class="indented"><div><h1 id="1c70c4af-6cb0-8026-bf1e-cebaee757894" class=""><strong>Wir sind in Russland “unerwünscht”.</strong></h1><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-8089-8582-c7e410690df5"><div style="font-size:1.5em"><span class="icon">❔</span></div><div style="width:100%"><h2 id="1c70c4af-6cb0-8034-806b-dae4aea88d5d" class=""><strong>Was ist passiert:</strong></h2><p id="1c70c4af-6cb0-80e3-80c0-f80bf88a68fa" class="">Am 12. Juli 2024 hat das Justizministerium Russlands MitOst e.V. in das Register der „unerwünschten Organisationen“ eingetragen. Wir, MitOst Hamburg e.V., sind technisch gesehen ein Regionalverband von MitOst e.V. und sind nun auch „unerwünscht“ durch Assoziierung, obwohl wir so unabhängig wie möglich sind, wenig oder keinen Kontakt zu MitOst e.V. haben und etwas andere Aktivitäten ausüben.</p></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-80df-96a5-f389fbfe3120"><div style="font-size:1.5em"><span class="icon">❓</span></div><div style="width:100%"><h2 id="1c70c4af-6cb0-80c1-b34a-dffe5e5a9509" class=""><strong>Was heißt es:</strong></h2><p id="1c70c4af-6cb0-807b-970f-f27d5f20d0b8" class="">Wir können in Russland nicht tätig sein, und die russische Teilnehmenden und Teamenden unserer Projekte (auch nicht in Russland) können von den russischen Vollzugsbehörden strafrechtlich verfolgt werden. Im Folgenden findet ihr die Anleitung, wie ihr die Risiken für eure russische Freunden minimieren könnt.</p><details><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Über das Gesetz:</summary><div class="indented"><ul id="1c70c4af-6cb0-808b-9160-c5b9b5c73326" class="bulleted-list"><li style="list-style-type:disc">Die <strong>Verwaltungshaftung</strong> für die Teilnahme an den Aktivitäten einer Organisation ist in Artikel 20.33 des Gesetzes über administrative Straftaten vorgesehen. Die Strafe ist eine Geldstrafe zwischen 5.000 und 15.000 Rubel.<p id="1c70c4af-6cb0-8092-99c4-c5c86ea45a5f" class="">Das ist:</p><ul id="1c70c4af-6cb0-803e-a77d-ca869b872a6e" class="bulleted-list"><li style="list-style-type:circle">die Arbeit bei MitOst</li></ul><ul id="1c70c4af-6cb0-80d6-9899-eb59c5c35ee8" class="bulleted-list"><li style="list-style-type:circle">Verbreitung und Weiterleitung von Materialien und Links zu MitOst</li></ul><ul id="1c70c4af-6cb0-8040-a67c-de43b54aa05b" class="bulleted-list"><li style="list-style-type:circle">Verbreitung von MitOst-Symbolen</li></ul><ul id="1c70c4af-6cb0-8022-a079-f25835a405c9" class="bulleted-list"><li style="list-style-type:circle">Nichtlöschung der öffentlichen Weiterverbreitung von Materialien und Links zu MitOst</li></ul></li></ul><ul id="1c70c4af-6cb0-8057-bb82-c90a2da6e3c2" class="bulleted-list"><li style="list-style-type:disc">Die <strong>strafrechtliche Verantwortung</strong> ist in Artikel 284.1 des Strafgesetzbuches festgelegt. Die Strafe beträgt bis zu 6 Jahre Haft in einer Strafkolonie. Der Artikel besteht aus drei Teilen:<ul id="1c70c4af-6cb0-8056-88b2-c71ccae7db14" class="bulleted-list"><li style="list-style-type:circle">Wiederholte Teilnahme an Aktivitäten. Gilt in zwei Fällen: wenn eine Person zum zweiten Mal innerhalb eines Jahres nach Artikel 20.33 angeklagt wird; wenn eine Person eine Handlung nach Artikel 20.33 begangen hat und gleichzeitig eine Verurteilung nach Artikel 284.1 aussteht.<p id="1c70c4af-6cb0-805c-aac9-fe8f7e4349c4" class="">(In Anbetracht des Charakters der Gerichte in Russland können 2 Wiederholungen als 2 Teilnahmen betrachtet werden und es handelt sich bereits um einen strafrechtlichen Artikel)</p></li></ul><ul id="1c70c4af-6cb0-80ee-9f4f-c05e7756f7f0" class="bulleted-list"><li style="list-style-type:circle">Bereitstellung, Sammlung von Geld oder Erbringung von Finanzdienstleistungen, die wissentlich für MitOst bestimmt sind.</li></ul><ul id="1c70c4af-6cb0-80f2-ae6c-edb537753e34" class="bulleted-list"><li style="list-style-type:circle">Organisieren von Aktivitäten - zum Beispiel die Leitung von MitOst.</li></ul></li></ul></div></details></div></figure><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-8086-821b-f6ef234b147e"><div style="font-size:1.5em"><span class="icon">⚠️</span></div><div style="width:100%"><h2 id="1c70c4af-6cb0-8004-b3f8-faabb0294069" class=""><strong>Was ihr beachten sollt:</strong></h2><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-80fe-83ae-e0a084c76e6c"><div style="font-size:1.5em"><span class="icon">🔒</span></div><div style="width:100%"><p id="1c70c4af-6cb0-805a-b95c-d014bd4ff793" class="">Wenn es um MitOst geht, am besten via Signal oder Telegram Secret-Chats mit Menschen aus Russland kommunizieren </p><ul id="1c70c4af-6cb0-80e7-a5e4-d259308a8541" class="bulleted-list"><li style="list-style-type:disc">Zuerst Consent bekommen (besonders, wenn die Person IN Russland ist)</li></ul><ul id="1c70c4af-6cb0-80d3-9692-c4dce9c3f692" class="bulleted-list"><li style="list-style-type:disc">Nach Vereinbarung könnt ihr auch andere Kanäle benutzen</li></ul></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-80d5-b394-f6631e344f99"><div style="font-size:1.5em"><span class="icon">🤫</span></div><div style="width:100%"><p id="1c70c4af-6cb0-8020-bfc1-d6df2b3eaac7" class="">Nicht inkriminieren (d.h. ohne Consent nicht schreiben, dass die Person aus Russland in irgendeinem Projekt teilgenommen/geteamt hat oder MitOst finanziert)</p></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1c70c4af-6cb0-80b3-a380-ec7dc11bc657"><div style="font-size:1.5em"><span class="icon">📸</span></div><div style="width:100%"><p id="1c70c4af-6cb0-8067-9cc0-cb5bcd575162" class="">Keine Fotos von anderen ohne Consent machen oder veröffentlichen</p></div></figure></div></figure></div></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
